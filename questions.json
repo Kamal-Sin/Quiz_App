@@ -1,0 +1,84 @@
+{
+    "questions": [
+        {
+            "question": "What is the capital of France?",
+            "options": [
+                "Paris",
+                "London",
+                "Rome",
+                "Berlin"
+            ],
+            "answer": "Paris"
+        },
+        {
+            "question": "What is the largest planet in our solar system?",
+            "options": [
+                "Jupiter",
+                "Saturn",
+                "Mars",
+                "Earth"
+            ],
+            "answer": "Jupiter"
+        },
+        {
+            "question": "Who painted the Mona Lisa?",
+            "options": [
+                "Leonardo da Vinci",
+                "Vincent van Gogh",
+                "Pablo Picasso",
+                "Claude Monet"
+            ],
+            "answer": "Leonardo da Vinci"
+        },
+        {
+            "question": "What is the capital of Australia?",
+            "options": [
+                "Sydney",
+                "Melbourne",
+                "Canberra",
+                "Perth"
+            ],
+            "answer": "Canberra"
+        },
+        {
+            "question": "Which country is known as the 'Land of the Rising Sun'?",
+            "options": [
+                "China",
+                "Japan",
+                "South Korea",
+                "Thailand"
+            ],
+            "answer": "Japan"
+        },
+        {
+            "question": "Who wrote the famous play 'Romeo and Juliet'?",
+            "options": [
+                "William Shakespeare",
+                "George Orwell",
+                "J.R.R. Tolkien",
+                "Jane Austen"
+            ],
+            "answer": "William Shakespeare"
+        },
+        {
+            "question": "What is the chemical symbol for gold?",
+            "options": [
+                "Go",
+                "Au",
+                "Ag",
+                "Gi"
+            ],
+            "answer": "Au"
+        },
+        {
+            "question": "Which planet is known as the 'Red Planet'?",
+            "options": [
+                "Mars",
+                "Mercury",
+                "Venus",
+                "Saturn"
+            ],
+            "answer": "Mars"
+        }
+    ]
+}

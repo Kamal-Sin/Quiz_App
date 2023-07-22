@@ -1,4 +1,3 @@
-// Fetch the quiz questions from a JSON file
 fetch('questions.json')
     .then(response => response.json())
     .then(data => {
@@ -12,9 +11,11 @@ fetch('questions.json')
         const scoreElement = document.getElementById('score');
         const submitButton = document.getElementById('submit-btn');
         const restartButton = document.getElementById('restart-btn');
+        const timerElement = document.getElementById('timer');
 
         let currentQuestionIndex = 0;
         let score = 0;
+        let timer;
 
         function showQuestion() {
             const currentQuestion = data.questions[currentQuestionIndex];
@@ -36,6 +37,9 @@ fetch('questions.json')
             });
 
             quizContainer.style.display = 'block';
+
+            // Start the timer
+            startTimer();
         }
 
         function showResult() {
@@ -67,7 +71,6 @@ fetch('questions.json')
             }
         }
 
-        // Shuffle function to randomize array elements
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
@@ -79,7 +82,7 @@ fetch('questions.json')
         function restartQuiz() {
             currentQuestionIndex = 0;
             score = 0;
-            shuffleArray(data.questions); // Shuffle the questions array
+            shuffleArray(data.questions);
             resultContainer.style.display = 'none';
             showQuestion();
         }
@@ -90,7 +93,33 @@ fetch('questions.json')
             showQuestion();
         }
 
+        function startTimer() {
+            let timeLeft = 10; // 10 seconds
+
+            timerElement.textContent = `Time left: ${timeLeft} seconds`;
+
+            timer = setInterval(() => {
+                timeLeft--;
+                timerElement.textContent = `Time left: ${timeLeft} seconds`;
+
+                if (timeLeft === 0) {
+                    clearInterval(timer);
+                    timerElement.textContent = 'Time expired!';
+                    currentQuestionIndex++;
+                    if (currentQuestionIndex < data.questions.length) {
+                        showQuestion();
+                    } else {
+                        showResult();
+                    }
+                }
+            }, 1000); // 1 second intervals
+        }
+
+
         startButton.addEventListener('click', startQuiz);
-        submitButton.addEventListener('click', checkAnswer);
+        submitButton.addEventListener('click', () => {
+            clearInterval(timer);
+            checkAnswer();
+        });
         restartButton.addEventListener('click', restartQuiz);
     });
